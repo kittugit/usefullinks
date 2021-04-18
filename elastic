@@ -1,1 +1,3 @@
 cluster management: https://medium.com/@diogo.fg.pinheiro/elasticsearch-cluster-in-production-3-nodes-668221bbd952
+cluster restart node: https://www.elastic.co/guide/en/elasticsearch/reference/current/restart-upgrade.html
+
