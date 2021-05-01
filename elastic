@@ -2,3 +2,15 @@ cluster management: https://medium.com/@diogo.fg.pinheiro/elasticsearch-cluster-
 cluster restart node: https://www.elastic.co/guide/en/elasticsearch/reference/current/restart-upgrade.html
 delayed allocation when node leaves: https://www.elastic.co/guide/en/elasticsearch/reference/current/delayed-allocation.html
 
+
+Crul:
+Cluster Health: curl http://localhost:9200/_cluster/health?pretty
+Cluster Stats: curl http://localhost:9200/_cluster/stats?pretty
+
+Disk Allocation:  curl http://localhost:9200/_cat/allocation?v
+
+Unassigned Shards:
+
+Reason for Unassigned Shards: curl -XGET 'http://localhost:9200/_cat/shards?h=index,shard,prirep,state,unassigned.reason' | grep UNASSIGNED
+
+
