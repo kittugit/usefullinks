@@ -12,5 +12,8 @@ Disk Allocation:  curl http://localhost:9200/_cat/allocation?v
 Unassigned Shards:
 
 Reason for Unassigned Shards: curl -XGET 'http://localhost:9200/_cat/shards?h=index,shard,prirep,state,unassigned.reason' | grep UNASSIGNED
+Delete Unassigned Shards: curl -XGET http://localhost:9200/_cat/shards | grep UNASSIGNED | awk {'print $1'} | xargs -i curl -XDELETE "http://localhost:9200/{}"
+  Ref: https://www.cyberithub.com/how-to-delete-elasticsearch-unassigned-shards/
+  
 
 
