@@ -4,8 +4,9 @@ delayed allocation when node leaves: https://www.elastic.co/guide/en/elasticsear
 
 
 Crul:
-Cluster Health: curl http://localhost:9200/_cluster/health?pretty
-Cluster Stats: curl http://localhost:9200/_cluster/stats?pretty
+Cluster:
+  Health: curl http://localhost:9200/_cluster/health?pretty
+  Stats: curl http://localhost:9200/_cluster/stats?pretty
 
 Disk Allocation:  curl http://localhost:9200/_cat/allocation?v
 
