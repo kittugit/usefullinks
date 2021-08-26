@@ -3,7 +3,10 @@ cluster restart node: https://www.elastic.co/guide/en/elasticsearch/reference/cu
 delayed allocation when node leaves: https://www.elastic.co/guide/en/elasticsearch/reference/current/delayed-allocation.html
 
 
-Crul:
+Curl:
+Indices:
+    Delete all: curl -XDELETE localhost:9200/_all
+    
 Cluster:
   Health: curl http://localhost:9200/_cluster/health?pretty
   Stats: curl http://localhost:9200/_cluster/stats?pretty
