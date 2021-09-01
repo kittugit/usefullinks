@@ -1,2 +1,6 @@
 delete branch
 git push origin --delete <branch_name>
+-- delete local tag
+ git tag -d <tag_name>
+-- delete remote tag
+git push --delete origin <tag_name>
