@@ -20,6 +20,15 @@ Delete Unassigned Shards: curl -XGET http://localhost:9200/_cat/shards | grep UN
   Ref: https://www.cyberithub.com/how-to-delete-elasticsearch-unassigned-shards/
 Explain: (Unassigned shards cluster_recovered) 
   curl -XGET 'http://localhost:9200/_cluster/allocation/explain?pretty'
+
+
+Stop Reallocation:
+
+# run before stopping an elasticsearch instance
+curl -X PUT "localhost:9200/_cluster/settings?pretty" -H 'Content-Type: application/json' -d'{"transient" : {"cluster.routing.allocation.enable" : "primaries" } } 
+
+# run after elasticsearch is restarted and elasticsearch box is completed
+curl -X PUT "localhost:9200/_cluster/settings?pretty" -H 'Content-Type: application/json' -d'{"transient" : {"cluster.routing.allocation.enable" : "all" } }
   
 
 
