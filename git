@@ -1,15 +1,20 @@
 delete branch
-git push origin --delete <branch_name>
+     git push origin --delete <branch_name>
 -- delete local tag
- git tag -d <tag_name>
+     git tag -d <tag_name>
 -- delete remote tag
-git push --delete origin <tag_name>
+     git push --delete origin <tag_name>
 
 
 replace branch:
 
-git branch -m master master-old  # rename master on local
-git push origin :master          # delete master on remote
-git push origin master-old       # create master-old on remote
-git checkout -b master seotweaks # create a new local master on top of seotweaks
-git push origin master           # create master on remote
+    git branch -m master master-old  # rename master on local
+    git push origin :master          # delete master on remote
+    git push origin master-old       # create master-old on remote
+    git checkout -b master seotweaks # create a new local master on top of seotweaks
+    git push origin master           # create master on remote
+
+
+git clone - checkout fails - Windows - File too long
+
+   git config core.longpaths true
