@@ -18,3 +18,7 @@ replace branch:
 git clone - checkout fails - Windows - File too long
 
    git config core.longpaths true
+
+gradlew make it executable
+
+     git update-index --chmod=+x gradlew
