@@ -1,0 +1,5 @@
+-- find today log file names which has error
+    find . -mtime -1 -exec grep -l " ERROR " {} \;
+ 
+ -- find today errors
+  find . -mtime -1 -exec grep " ERROR " {} \;
