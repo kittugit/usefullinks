@@ -3,3 +3,7 @@
  
  -- find today errors
   find . -mtime -1 -exec grep " ERROR " {} \;
+  
+  
+ -- for lopp
+ for jar in $(find . -name *.jar | grep -v dont_include); do  echo -n  $jar >> ../file.txt && jar -tf $jar | grep log4 | tr "\n" " " >> ../file.txt && echo "\n" >> ../file.txt ; done
