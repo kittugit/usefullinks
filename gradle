@@ -1,0 +1,6 @@
+-- List dependency tree for all projects including subprojects
+   1. add the following in buil.gradle (parent project)
+      allprojects {
+          task printAllDependencies(type: DependencyReportTask) {}
+      }
+   2. Rund gradlw.bat printAllDependencies
