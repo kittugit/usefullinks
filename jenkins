@@ -9,3 +9,11 @@ item.builds.each() { build ->
   build.delete()
 }
 item.updateNextBuildNumber(1)
+
+
+
+
+script to clean queue
+
+Jenkins.instance.queue.clear()
+
