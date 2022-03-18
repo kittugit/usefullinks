@@ -1,0 +1,10 @@
+const { test, expect } = require("@playwright/test");
+test("Github Create First Wiki Page", async ({ page }) => {
+await page.goto('https://github.com/login');
+await page.fill('input[id="login_field"]', "USERNAME");
+await page.fill('input[id="password"]', "PASSWORD");
+await page.click('input[name=commit]:visible');
+await page.goto('https://github.com/kittugit/configserver/wiki/_new');
+await page.locator('text=Save Page').click();
+await page.waitForTimeout(5000);
+});
