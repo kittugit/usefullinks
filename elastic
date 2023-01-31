@@ -16,7 +16,22 @@ Disk Allocation:  curl http://localhost:9200/_cat/allocation?v
 Unassigned Shards:
 
 Reason for Unassigned Shards: curl -XGET 'http://localhost:9200/_cat/shards?h=index,shard,prirep,state,unassigned.reason' | grep UNASSIGNED
-Delete Unassigned Shards: curl -XGET http://localhost:9200/_cat/shards | grep UNASSIGNED | awk {'print $1'} | xargs -i curl -XDELETE "http://localhost:9200/{}"
+Delete Unassinged Shards: 
+curl http://localhost:9200/_cat/shards?v  2>/dev/null |grep UNASSIGNED | sed -e 's/\([^ ]*\) *\([^ ]*\) *.*/\1 \2/'|while read line; do indexname=`echo $line|cut -d' ' -f1`; curl -X PUT localhost:9200/$indexname/_settings -H 'Content-Type: application/json'  -d'
+{
+    "index.number_of_replicas": 0
+}'; done
+
+Set number of replicas for an index: 
+
+curl http://localhost:9200/_cat/shards?v  2>/dev/null |grep UNASSIGNED | sed -e 's/\([^ ]*\) *\([^ ]*\) *.*/\1 \2/'|while read line; do indexname=`echo $line|cut -d' ' -f1`; curl -X PUT localhost:9200/$indexname/_settings -H 'Content-Type: application/json'  -d'
+{
+   "settings": {
+        "index.number_of_replicas": 0
+    }
+}'; done
+
+Delete Index with Unassigned Shards: curl -XGET http://localhost:9200/_cat/shards | grep UNASSIGNED | awk {'print $1'} | xargs -i curl -XDELETE "http://localhost:9200/{}"
   Ref: https://www.cyberithub.com/how-to-delete-elasticsearch-unassigned-shards/
 Explain: (Unassigned shards cluster_recovered) 
   curl -XGET 'http://localhost:9200/_cluster/allocation/explain?pretty'

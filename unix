@@ -1,0 +1,12 @@
+-- find today log file names which has error
+    find . -mtime -1 -exec grep -l " ERROR " {} \;
+ 
+ -- find today errors
+  find . -mtime -1 -exec grep " ERROR " {} \;
+  
+  
+ -- for lopp
+ for jar in $(find . -name *.jar | grep -v dont_include); do  echo -n  $jar >> ../file.txt && jar -tf $jar | grep log4 | tr "\n" " " >> ../file.txt && echo "\n" >> ../file.txt ; done
+ 
+ -- modify file 
+ for prop in $(find . -name application.yml); do  echo -n  $prop && sed -i 's/db1?useSSL/db2?useSSL/'; done
